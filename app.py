@@ -14,13 +14,13 @@ def index():
    #response = requests.get("https://reqres.in/api/users")
    #data = json.loads(response.content)
    #html = "<html><body>"
-   html += "<table>"
-   html += "<tr><th>ID</th><th>Name</th><th>Email</th></tr>"
+   #html += "<table>"
+   #html += "<tr><th>ID</th><th>Name</th><th>Email</th></tr>"
     #for user in data["data"]:
      #   html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
-    html += "</table>"
+    #html += "</table>"
     #html += "</body></html>"
-   return render_template('index.html', content=html)
+   return render_template('index.html', content="Hello Kamesh")
 
 @app.route('/favicon.ico')
 def favicon():

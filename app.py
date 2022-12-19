@@ -11,9 +11,9 @@ app = Flask(__name__)
 def index():
    #print('Request for index page received')
    #return render_template('index.html')
-   response = requests.get("https://reqres.in/api/users")
-   data = json.loads(response.content)
-   html = "<html><body>"
+   #response = requests.get("https://reqres.in/api/users")
+   #data = json.loads(response.content)
+   #html = "<html><body>"
    html += "<table>"
    html += "<tr><th>ID</th><th>Name</th><th>Email</th></tr>"
     for user in data["data"]:

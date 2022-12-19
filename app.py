@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-   #print('Request for index page received')
-   #return render_template('index.html')
+   print('Request for index page received')
+   return render_template('index.html')
    #response = requests.get("https://reqres.in/api/users")
    #data = json.loads(response.content)
    #html = "<html><body>"
@@ -20,7 +20,7 @@ def index():
      #   html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
     #html += "</table>"
     #html += "</body></html>"
-   return render_template('index.html', content="Hello Kamesh")
+   #return render_template('index.html', content="Hello Kamesh")
 
 @app.route('/favicon.ico')
 def favicon():

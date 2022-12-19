@@ -20,7 +20,7 @@ def index():
      #   html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
     html += "</table>"
     html += "</body></html>"
-   return render_template('index.html', html = html)
+   return render_template('index.html', html)
 
 @app.route('/favicon.ico')
 def favicon():

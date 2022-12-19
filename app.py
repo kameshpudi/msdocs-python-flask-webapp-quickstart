@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
    print('Request for index page received')
-   return render_template('index.html', content="Hello KK")
+   return render_template('index.html', content="<table><tr><th>ID</th><th>Name</th><th>Email</th></tr></table>")
    #response = requests.get("https://reqres.in/api/users")
    #data = json.loads(response.content)
    #html = "<html><body>"

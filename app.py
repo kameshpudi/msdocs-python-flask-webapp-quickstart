@@ -16,8 +16,8 @@ def index():
    #html = "<html><body>"
    html += "<table>"
    html += "<tr><th>ID</th><th>Name</th><th>Email</th></tr>"
-    for user in data["data"]:
-        html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
+    #for user in data["data"]:
+     #   html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
     html += "</table>"
     html += "</body></html>"
    return render_template('index.html', html = html)

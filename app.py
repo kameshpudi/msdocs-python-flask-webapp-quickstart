@@ -8,25 +8,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-   #print('Request for index page received')
-   #return render_template('index.html')
-    # Make a GET request to the API endpoint
-       response = requests.get("https://reqres.in/api/users")
+   response = requests.get("https://reqres.in/api/users")
+   data = json.loads(response.content)
+   html = "<html><body>"
+   html += "<table>"
+   html += "<tr><th>ID</th><th>Name</th><th>Email</th></tr>"
+    for user in data["data"]:
+        html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
+    html += "</table>"
+    html += "</body></html>"
+   return render_template('users.html', html = html)
 
-       # Parse the response data into a Python object
-       data = json.loads(response.content)
-
-       # Generate an HTML string that represents the data
-       html = "<html><body>"
-       html += "<table>"
-       html += "<tr><th>ID</th><th>Name</th><th>Email</th></tr>"
-       for user in data["data"]:
-           html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
-       html += "</table>"
-       html += "</body></html>"
-    return render_template('users.html', html = html)
-
-      @app.route('/favicon.ico')
+@app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')

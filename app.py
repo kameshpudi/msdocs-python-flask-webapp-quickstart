@@ -9,8 +9,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-   print('Request for index page received')
-   return render_template('index.html', content="<table><tr><th>ID</th><th>Name</th><th>Email</th></tr></table>")
+   response = requests.get("https://reqres.in/api/users")
+   data = json.loads(response.content)
+   html = "<table>"
+   html += "<tr><th>ID</th><th>Name</th><th>Email</th></tr>"
+   for user in data["data"]:
+      html += f"<tr><td>{user['id']}</td><td>{user['first_name']} {user['last_name']}</td><td>{user['email']}</td></tr>"
+   html += "</table>"
+   return render_template('index.html', content=html)
+   #return render_template('index.html', content="<table><tr><th>ID</th><th>Name</th><th>Email</th></tr></table>")
    #response = requests.get("https://reqres.in/api/users")
    #data = json.loads(response.content)
    #html = "<html><body>"

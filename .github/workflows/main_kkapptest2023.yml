@@ -5,6 +5,9 @@
 name: Build and deploy Python app to Azure Web App - kkapptest2023
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -57,4 +60,4 @@ jobs:
         with:
           app-name: 'kkapptest2023'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_87EC89102C634BAAAA0DF3F141B05E69 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8FD00FA9AC59419081E2E877EC21EFC4 }}
